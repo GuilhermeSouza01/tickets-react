@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
+export const StyledHeader = styled.header`
+  grid-area: header;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding: 1.2rem;
-  background-color: ${ props => props.theme['background-200']};
-  box-shadow: 0 1px 2px 0px ${ props => props.theme['secondary-200']};
+  padding: 1.2rem 4.8rem;
+  background-color: ${ props => props.theme['color-tone-blue-100']};
+  border-bottom: 1px solid ${ props => props.theme['color-grey-100']};
+  gap: 2.4rem;
 `;

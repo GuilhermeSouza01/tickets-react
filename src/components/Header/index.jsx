@@ -1,13 +1,14 @@
 import React from 'react';
-import { HeaderContainer } from './styles';
+import {StyledHeader } from './styles';
 
 export function Header() {
   return (
-    <HeaderContainer>
+    <StyledHeader>
       <span>Fixly</span>
       <nav>
         <a href='/'>User</a>
+        <a href='/tickets'>Tickets</a>
       </nav>
-    </HeaderContainer>
+    </StyledHeader>
   )
 }
