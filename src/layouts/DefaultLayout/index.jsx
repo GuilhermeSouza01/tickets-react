@@ -1,15 +1,20 @@
 import React from 'react';
 import { Header } from '../../components/Header';
 import { Outlet } from 'react-router-dom';
-import { LayoutContainer } from './styles';
+import { Container, LayoutContainer, Main } from './styles';
+import { Sidebar } from '../Sidebar';
 
 export function DefaultLayout() {
   return (
     <LayoutContainer>
       <Header />
-      <main>
-        <Outlet />
-      </main>
+      <Sidebar />
+      <Main>
+        <Container>
+         <Outlet />
+        </Container>
+
+      </Main>
     </LayoutContainer>
   )
 }
