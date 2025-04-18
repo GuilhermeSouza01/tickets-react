@@ -14,8 +14,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${props => props.theme['background-100']};
-    color: ${props => props.theme['primary-800']};
+    background-color: ${props => props.theme['background-50']};
+    color: ${props => props.theme['color-grey-700']};
+    min-height: 100vh;
   }
 
   body, input, text-area, button {
