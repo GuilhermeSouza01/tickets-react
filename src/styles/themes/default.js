@@ -23,7 +23,19 @@ export const defaultTheme = {
   "color-silver-100": "#e5e7eb",
   "color-silver-700": "#374151",
   "color-tone-blue-100": "#d9e1ff",
-  "color-tone-blue-600": "#3a25ff",
+  "color-tone-blue-600": "#4564FF",
+
+  //matisse
+  "color-brand-50": "#f4f7fb",
+  "color-brand-100": "#e8edf6",
+  "color-brand-200": "#cddbea",
+  "color-brand-300": "#a1bcd8",
+  "color-brand-400": "#6e99c2",
+  "color-brand-500": "#4c7dab",
+  "color-brand-600": "#3c6796",
+  "color-brand-700": '#2f4f75',
+
+
 
   "color-red-100": "#fee2e2",
   "color-red-700": "#b91c1c",
@@ -37,5 +49,10 @@ export const defaultTheme = {
 
   "image-grayscale": "0",
   "image-opacity": "100%",
+
+  "border-radius-tiny": "3px",
+  "border-radius-sm": "5px",
+  "border-radius-md": "7px",
+  "border-radius-lg": "9px",
 };
 
