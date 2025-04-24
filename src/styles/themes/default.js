@@ -25,15 +25,17 @@ export const defaultTheme = {
   "color-tone-blue-100": "#d9e1ff",
   "color-tone-blue-600": "#4564FF",
 
-  //matisse
-  "color-brand-50": "#f4f7fb",
-  "color-brand-100": "#e8edf6",
-  "color-brand-200": "#cddbea",
-  "color-brand-300": "#a1bcd8",
-  "color-brand-400": "#6e99c2",
-  "color-brand-500": "#4c7dab",
-  "color-brand-600": "#3c6796",
-  "color-brand-700": '#2f4f75',
+
+  //great-blue
+
+  "color-brand-50": "#E4F7F8",
+  "color-brand-100": "#CCEEF2",
+  "color-brand-200": "#9CD7E5",
+  "color-brand-300": "#6CB9D8",
+  "color-brand-400": "#3B94CB",
+  "color-brand-500": "#2A669F",
+  "color-brand-600": "#234B83",
+  "color-brand-700": '#1B3366',
 
 
 
