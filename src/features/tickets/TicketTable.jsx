@@ -15,6 +15,7 @@ export function TicketTable(){
   const { data: tickets, isLoading, error } = useQuery({
     queryKey: ['tickets'],
     queryFn: getTickets,
+    retry: 1,
   });
 
   const hasTickets = Array.isArray(tickets?.data) && tickets.data.length > 0;
