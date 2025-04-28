@@ -2,20 +2,20 @@ import {styled, css} from "styled-components";
 
 const sizes = {
     small: css`
-    font-size: 1.2rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
     text-transform: uppercase;
     font-weight: 600;
     text-align: center;
   `,
   medium: css`
-    font-size: 1.4rem;
-    padding: 1.2rem 1.6rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
     font-weight: 500;
   `,
   large: css`
-    font-size: 1.6rem;
-    padding: 1.2rem 2.4rem;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
     font-weight: 500;
   `,
 }
@@ -23,10 +23,10 @@ const sizes = {
 const variations = {
   primary: css`
     color: ${(props) => props.theme["color-brand-50"]};
-    background-color: ${(props) => props.theme["color-brand-500"]};
+    background-color: ${(props) => props.theme["color-brand-400"]};
 
     &:hover {
-      background-color: ${(props) => props.theme["color-brand-700"]};
+      background-color: ${(props) => props.theme["color-brand-500"]};
     }
   `,
   secondary: css`
