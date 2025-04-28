@@ -18,8 +18,8 @@ export const Row = styled.div`
 
 export const Header = styled(Row)`
   padding: 1rem 2rem;
-  background-color: ${(props) => props.theme["color-brand-300"]};
-  color: ${(props) => props.theme["color-grey-100"]};
+  background-color: ${(props) => props.theme["color-grey-50"]};
+  color: ${(props) => props.theme["color-grey-600"]};
   border-bottom: 1px solid ${(props) => props.theme["color-grey-100"]};
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -27,7 +27,7 @@ export const Header = styled(Row)`
 `;
 export const Body = styled.div`
   /* padding: 1rem; */
-  background-color: ${(props) => props.theme["color-grey-50"]};
+  background-color: ${(props) => props.theme["color-grey-0"]};
 `;
 export const DataRow = styled(Row)`
   padding: 1rem 2rem;
@@ -42,7 +42,7 @@ export const DataRow = styled(Row)`
 `;
 
 export const Footer = styled.footer`
-  background-color: ${(props) => props.theme["color-brand-300"]};
+  background-color: ${(props) => props.theme["color-grey-50"]};
   display: flex;
   justify-content: center;
   padding: 1rem;
