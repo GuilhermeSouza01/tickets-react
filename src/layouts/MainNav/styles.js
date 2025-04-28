@@ -42,6 +42,6 @@ export const StyledNavLink = styled(NavLink)`
   &:active svg,
   &.active:link svg,
   &.active:visited svg {
-    color: ${props => props.theme["color-brand-600"]};
+    color: ${props => props.theme["color-brand-400"]};
   }
 `;
