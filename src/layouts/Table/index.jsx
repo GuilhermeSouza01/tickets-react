@@ -2,7 +2,8 @@
 
 import React from 'react';
 
-import { Body, DataRow, Header, StyledTable } from './styles';
+import { DataRow, Header, StyledBody, StyledTable } from './styles';
+import { Empty } from '../Empty/Empty';
 
 export function Table({children}) {
 
@@ -12,4 +13,16 @@ export function Table({children}) {
        {children}
     </StyledTable>
   );
+};
+
+export function TableBody({data, render}) {
+  if (!data.length) return <Empty>No data to show at the moment</Empty>
+
+  return <StyledBody>{data.map(render)}</StyledBody>
 }
+
+export function TableRow({children}) {
+  return <DataRow>{children}</DataRow>
+}
+
+

@@ -25,7 +25,7 @@ export const Header = styled(Row)`
   letter-spacing: 0.4px;
   font-weight: 600;
 `;
-export const Body = styled.div`
+export const StyledBody = styled.div`
   /* padding: 1rem; */
   background-color: ${(props) => props.theme["color-grey-0"]};
 `;
