@@ -1,9 +1,9 @@
 import axiosInstance from "./axios";
 
-export async function getTickets() {
+export async function getTickets({page}) {
 
   try {
-    const response = await axiosInstance.get("/tickets");
+    const response = await axiosInstance.get(`/tickets?page=${page}`);
     return response.data;
   } catch(error) {
     if(!error.responsed) {
