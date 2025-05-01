@@ -12,7 +12,7 @@ export function useTickets() {
 
   const {
     isLoading,
-    data: {data: tickets, count} = {},
+    data: {data: tickets, total, lastPage} = {},
     error,
   } = useQuery({
     queryKey: ["tickets", page],
@@ -20,7 +20,10 @@ export function useTickets() {
     keepPreviousData: true,
   });
 
-  const pageCount = Math.ceil(count / PAGE_SIZE);
+  console.log("tickets", tickets);
+
+  const pageCount = lastPage || Math.ceil(total / PAGE_SIZE);
+  const count = total || tickets?.length || 0;
 
   if (page < pageCount) {
     queryClient.prefetchQuery({

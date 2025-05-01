@@ -11,7 +11,7 @@ import { TableBody } from '../../layouts/Table';
 
 export function TicketTable(){
 
-  const {tickets, isLoading, count, error } = useTickets();
+  const {tickets, isLoading, count,error } = useTickets();
 
   const token = '6|4UCGmm28PDwhlfT9fTZD6PVA4JGFXG6OCxpNmkV64aa44906';
 
@@ -50,7 +50,7 @@ export function TicketTable(){
       )}>
       </TableBody>
       <Footer >
-        <Pagination />
+        <Pagination count={count} />
       </Footer>
     </StyledTable>
   );
