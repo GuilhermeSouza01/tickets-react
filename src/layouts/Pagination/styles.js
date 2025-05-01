@@ -22,7 +22,7 @@ export const Buttons = styled.div`
 `;
 
 export const PaginationButton = styled.button`
-  background-color: ${(props) => props.active? props.theme["color-primary-500"] : props.theme["color-grey-50"]};
+  background-color: ${(props) => props.active ? props.theme["color-brand-400"] : props.theme["color-grey-50"]};
   color: ${(props) => props.active? props.theme["color-brand-50"] : "inherit"};
   border: none;
   border-radius: ${(props) => props.theme["border-radius-sm"]};
@@ -50,7 +50,7 @@ export const PaginationButton = styled.button`
   }
 
   &:hover:not(:disabled) {
-    background-color: ${(props) => props.theme["color-primary-500"]};
+    background-color: ${(props) => props.theme["color-brand-400"]};
     color: ${(props) => props.theme["color-brand-50"]};
   }
 
