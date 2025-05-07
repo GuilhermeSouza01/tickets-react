@@ -13,12 +13,6 @@ export function TicketTable(){
 
   const {tickets, isLoading, count,error } = useTickets();
 
-  const token = '6|4UCGmm28PDwhlfT9fTZD6PVA4JGFXG6OCxpNmkV64aa44906';
-
-  setAuthToken(token);
-
-
-
   if (isLoading) {
     return <Spinner />;
   }
