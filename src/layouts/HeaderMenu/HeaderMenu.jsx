@@ -1,10 +1,10 @@
 
 /* eslint-disable react/react-in-jsx-scope */
 
-import { useNavigate } from "react-router-dom";
-import { StyledHeaderMenu } from "./styles";
+import { Link, useNavigate } from "react-router-dom";
+import { StyledHeaderLogoImg, StyledHeaderMenu,  } from "./styles";
 import { ButtonIcon } from "../ButtonIcon/ButtonIcon";
-import { HiOutlineMoon, HiOutlineUser } from "react-icons/hi2";
+import { HiOutlineUser } from "react-icons/hi2";
 import { DarkModeToggle } from "../DarkModeToggle/DarkModeToggle";
 
 export function HeaderMenu() {
@@ -14,7 +14,7 @@ export function HeaderMenu() {
   return (
     <StyledHeaderMenu>
       <li>
-        <ButtonIcon onClick={() => navigate("/account")}>
+        <ButtonIcon onClick={() => navigate("/")}>
           <HiOutlineUser />
         </ButtonIcon>
       </li>
