@@ -6,12 +6,15 @@ import { Empty } from '../../layouts/Empty/Empty';
 import { Pagination } from '../../layouts/Pagination/Pagination';
 import { useTickets } from './useTickets';
 import { TableBody } from '../../layouts/Table';
+import { TicketRow } from './TicketRow';
 
 
 
 export function TicketTable(){
 
   const {tickets, isLoading, count,error } = useTickets();
+
+  console.log("tickets", tickets);
 
   if (isLoading) {
     return <Spinner />;
@@ -34,13 +37,7 @@ export function TicketTable(){
         <div>Created At</div>
       </Header>
       <TableBody data={tickets} render={(ticket) => (
-        <DataRow key={ticket.id}>
-          <div>{ticket.id}</div>
-          <div>{ticket.attributes.title}</div>
-          <div>{ticket.attributes.status}</div>
-          <div>{ticket.attributes.priority}</div>
-          <div>{new Date(ticket.attributes.createdAt).toLocaleDateString()}</div>
-        </DataRow>
+       <TicketRow key={ticket.id} ticket={ticket} />
       )}>
       </TableBody>
       <Footer >

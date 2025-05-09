@@ -12,7 +12,7 @@ export function useTickets() {
 
   const {
     isLoading,
-    data: {data: tickets, total, lastPage} = {},
+    data,
     error,
   } = useQuery({
     queryKey: ["tickets", page],
@@ -20,7 +20,9 @@ export function useTickets() {
     keepPreviousData: true,
   });
 
-  console.log("tickets", tickets);
+  const tickets = data?.data || [];
+  const total = data?.meta?.total || 0;
+  const lastPage = data?.meta?.last_page || 0;
 
   const pageCount = lastPage || Math.ceil(total / PAGE_SIZE);
   const count = total || tickets?.length || 0;
