@@ -11,7 +11,7 @@ export async function getTickets({page}) {
 
     };
   } catch(error) {
-    if(!error.responsed) {
+    if(!error.response) {
       throw new Error("An error occurred while fetching tickets");
     }
 
