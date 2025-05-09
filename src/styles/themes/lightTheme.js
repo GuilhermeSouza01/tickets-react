@@ -14,8 +14,8 @@ export const lightTheme = {
   "color-grey-800": "#1f2937",
   "color-grey-900": "#111827",
 
-  "color-blue-100": "#e0f2fe",
-  "color-blue-700": "#0369a1",
+  "color-blue-100": "#ebf2fe",
+  "color-blue-700": "#3B82F7",
   "color-green-100": "#dcfce7",
   "color-green-700": "#15803d",
   "color-yellow-100": "#fef9c3",
