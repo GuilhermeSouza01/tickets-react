@@ -11,8 +11,8 @@ export const LayoutContainer = styled.div`
 export const Main = styled.main`
   grid-area: main;
   background-color: ${props => props.theme['color-grey-50']};
-  padding: 4rem 4.8rem 6.4rem;
-  overflow: hidden;
+  padding: 2.5rem 3rem 4rem;
+  overflow: scroll;
 `;
 
 export const Container = styled.div`
