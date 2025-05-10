@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
 
   input, button, textarea, select {
     font: inherit;
-    color: inherit;;
+    color: inherit;
   }
 
   button {
