@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { DataRow, Header, StyledBody, StyledTable } from './styles';
-import { Empty } from '../Empty/Empty';
+import { Empty } from '../Empty';
 
 export function Table({children}) {
 
