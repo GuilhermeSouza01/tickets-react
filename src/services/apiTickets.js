@@ -19,3 +19,26 @@ export async function getTickets({page}) {
   }
 
 };
+
+export async function getTicketById(id) {
+  try {
+    const response = await axiosInstance.get(`tickets/${id}`);
+    const ticket = response.data.data;
+
+    return {
+      id: ticket.id,
+      ...ticket.attributes,
+      authorId: ticket.relationships?.author?.data?.id,
+      authorName: ticket.relationships?.author?.attributes?.name,
+      authorEmail: ticket.relationships?.author?.attributes?.email,
+    };
+
+
+  } catch (error) {
+    if (!error.response) {
+      throw new Error("An error occurred while fetching the ticket");
+    }
+
+    throw new Error(error.response.data.message || "An error occurred while fetching the ticket");
+  }
+}
