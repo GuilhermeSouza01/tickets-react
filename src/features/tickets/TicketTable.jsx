@@ -1,8 +1,7 @@
 import React from 'react';
 import { DataRow, EmptyTable, Header, StyledTable, Footer } from '../../layouts/Table/styles';
-import { setAuthToken } from '../../services/axios';
-import { Spinner } from '../../layouts/Spinner/Spinner';
-import { Empty } from '../../layouts/Empty/Empty';
+import { Spinner } from '../../layouts/Spinner';
+import { Empty } from '../../layouts/Empty';
 import { Pagination } from '../../layouts/Pagination/Pagination';
 import { useTickets } from './useTickets';
 import { TableBody } from '../../layouts/Table';
