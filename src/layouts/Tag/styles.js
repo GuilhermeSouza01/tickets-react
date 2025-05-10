@@ -8,6 +8,7 @@ export const StyledTag = styled.span`
   font-size: 0.7rem;
   border-radius: 100px;
 
-  color: ${(props) => props.theme[props.textColor]};
+  color: ${(props) => props.theme[props.textcolor]};
   background-color: ${(props) => props.theme[props.bgColor]};
+  box-shadow: ${(props) => props.theme["shadow-sm"]};
 `;

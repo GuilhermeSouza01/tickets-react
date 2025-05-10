@@ -59,11 +59,11 @@ export function TicketRow({ ticket: {
       <div>{ticketId}</div>
       <div>{title}</div>
       <Tag
-        textColor={textColor} bgColor={bgColor}
+        textcolor={textColor} bgColor={bgColor}
       >
         {status}
       </Tag>
-      <Tag textColor={priorityTextColor} bgColor={priorityBgColor}>{priority}</Tag>
+      <Tag textcolor={priorityTextColor} bgColor={priorityBgColor}>{priority}</Tag>
       <div>{new Date(createdAt).toLocaleDateString()}</div>
     </DataRow>
   );
