@@ -21,8 +21,8 @@ export function useTickets() {
   });
 
   const tickets = data?.data || [];
-  const total = data?.meta?.total || 0;
-  const lastPage = data?.meta?.last_page || 0;
+  const total = data?.total || 0;
+  const lastPage = data?.last_page || 0;
 
   const pageCount = lastPage || Math.ceil(total / PAGE_SIZE);
   const count = total || tickets?.length || 0;
