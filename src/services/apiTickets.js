@@ -42,3 +42,16 @@ export async function getTicketById(id) {
     throw new Error(error.response.data.message || "An error occurred while fetching the ticket");
   }
 }
+
+export async function updatedTicket({id, data}) {
+  try {
+    const response = await axiosInstance.patch(`tickets/${id}`, data);
+    return response.data;
+  } catch (error) {
+    if (!error.response) {
+      throw new Error("An error occurred while updating the ticket");
+    }
+
+    throw new Error(error.response.data.message || "An error occurred while updating the ticket");
+  }
+}
