@@ -1,8 +1,8 @@
 import { useMoveBack } from "../../../hooks/useMoveBack";
 import { ButtonText } from "../../../layouts/ButtonText";
 import { useTicket } from "../useTicket";
-import { HeaderContainer, StyledTicketDetail, StyledTicketDetailCreationInfo, StyledTicketDetailDescription, StyledTicketDetailHeader, StyledTicketInfo, TitleSelectContainer } from "./styles";
-import { HiChevronLeft } from "react-icons/hi2"
+import { ActionButtonsContainer, HeaderContainer, StyledTicketDetail, StyledTicketDetailCreationInfo, StyledTicketDetailDescription, StyledTicketDetailHeader, StyledTicketDetailTitle, StyledTicketInfo, TitleSelectContainer } from "./styles";
+import { HiChevronLeft, HiOutlinePencil, HiOutlineTrash } from "react-icons/hi2"
 import { Spinner } from "../../../layouts/Spinner";
 import { Empty } from "../../../layouts/Empty";
 import { Tag } from "../../../layouts/Tag";
@@ -11,14 +11,21 @@ import { HiOutlineUser } from "react-icons/hi2";
 import { useEditTicket } from "../useEditTicket";
 import { Select } from "../../../layouts/Select";
 import { useEffect, useState } from "react";
+import { Button } from "../../../layouts/Button";
+import Modal from "../../../layouts/Modal";
+import { ConfirmDelete } from "../../../layouts/ConfirmDelete";
+import { useDeleteTicket } from "../useDeleteTicket";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/react-in-jsx-scope */
 export function TicketDetail() {
 
   const {ticket, isLoading, error} = useTicket();
   const { isUpdating, updateTicket } = useEditTicket();
+  const { isDeleting, deleteTicket } = useDeleteTicket();
 
   const moveBack = useMoveBack();
+  const navigate = useNavigate();
   const [currentStatus, setCurrentStatus] = useState("");
 
   useEffect(() => {
@@ -113,9 +120,29 @@ export function TicketDetail() {
         <ButtonText onClick={moveBack}>
             <HiChevronLeft strokeWidth={1.5} /> Back to tickets
         </ButtonText>
+        <ActionButtonsContainer>
+          <Button type="button" variant="secondary"  size="medium"><HiOutlinePencil strokeWidth={2.5} /> Edit</Button>
+          <Modal>
+            <Modal.Open opens="delete">
+               <Button type="button" variant="danger" size="medium"><HiOutlineTrash strokeWidth={2.5} /> Delete</Button>
+            </Modal.Open>
+
+            <Modal.Window name="delete">
+              <ConfirmDelete
+                onConfirm={() => deleteTicket(ticketId, { onSettled: () => navigate(-1)})}
+                resourceName="ticket"
+                disabled={isDeleting}
+              />
+            </Modal.Window>
+
+          </Modal>
+
+        </ActionButtonsContainer>
       </HeaderContainer>
       <StyledTicketInfo>
+
         <StyledTicketDetailHeader>
+            <StyledTicketDetailTitle>Ticket #{ticketId} </StyledTicketDetailTitle>
           <Tag textcolor={textColor} bgColor={bgColor}>
             {currentStatus}
           </Tag>

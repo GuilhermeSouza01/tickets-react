@@ -11,7 +11,7 @@ export const StyledTable = styled.div`
 
 export const Row = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.25fr;
   column-gap: 2rem;
   align-items: center;
 `;

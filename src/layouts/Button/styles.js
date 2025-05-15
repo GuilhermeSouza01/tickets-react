@@ -49,6 +49,11 @@ const variations = {
 };
 
 export const StyledButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
   border: none;
   border-radius: ${(props) => props.theme["border-radius-sm"]};
   box-shadow: ${(props) => props.theme["shadow-sm"]};

@@ -55,3 +55,16 @@ export async function updatedTicket({id, data}) {
     throw new Error(error.response.data.message || "An error occurred while updating the ticket");
   }
 }
+
+export async function deleteTicket(id) {
+  try {
+    const response = await axiosInstance.delete(`tickets/${id}`);
+    return response.data;
+  } catch (error) {
+    if (!error.response) {
+      throw new Error("An error occurred while deleting the ticket");
+    }
+
+    throw new Error(error.response.data.message || "An error occurred while deleting the ticket");
+  }
+}

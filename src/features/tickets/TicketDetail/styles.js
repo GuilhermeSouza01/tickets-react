@@ -13,6 +13,13 @@ export const HeaderContainer = styled.div`
   margin: 1rem 0;
 `;
 
+export const ActionButtonsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+
+`;
+
 export const StyledTicketInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,6 +29,14 @@ export const StyledTicketInfo = styled.div`
   border-radius: ${(props) => props.theme["border-radius-sm"]};
   box-shadow: ${(props) => props.theme["shadow-sm"]};
   margin: 1rem 0;
+`;
+
+export const StyledTicketDetailTitle = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: ${(props) => props.theme["color-grey-900"]};
+  gap: 1rem;
+  margin-right: 1rem;
 `;
 
 export const StyledTicketDetailHeader = styled.div`
