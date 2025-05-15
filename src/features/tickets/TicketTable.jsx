@@ -6,6 +6,7 @@ import { Pagination } from '../../layouts/Pagination/Pagination';
 import { useTickets } from './useTickets';
 import { TableBody } from '../../layouts/Table';
 import { TicketRow } from './TicketRow';
+import Menus from '../../layouts/Menus';
 
 
 
@@ -13,7 +14,6 @@ export function TicketTable(){
 
   const {tickets, isLoading, count,error } = useTickets();
 
-  console.log("tickets", tickets);
 
   if (isLoading) {
     return <Spinner />;
@@ -27,21 +27,25 @@ export function TicketTable(){
 
 
   return (
-    <StyledTable>
-      <Header>
-        <div>Id</div>
-        <div>Title</div>
-        <div>Status</div>
-        <div>Priority</div>
-        <div>Created At</div>
-      </Header>
-      <TableBody data={tickets} render={(ticket) => (
-       <TicketRow key={ticket.id} ticket={ticket} />
-      )}>
-      </TableBody>
-      <Footer >
-        <Pagination count={count} />
-      </Footer>
-    </StyledTable>
+    <Menus>
+      <StyledTable>
+        <Header>
+          <div>Id</div>
+          <div>Title</div>
+          <div>Status</div>
+          <div>Priority</div>
+          <div>Created At</div>
+          <div></div>
+        </Header>
+        <TableBody data={tickets} render={(ticket) => (
+        <TicketRow key={ticket.id} ticket={ticket} />
+        )}>
+        </TableBody>
+        <Footer >
+          <Pagination count={count} />
+        </Footer>
+      </StyledTable>
+    </Menus>
+
   );
 }

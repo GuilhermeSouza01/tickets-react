@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
+import { HiEye } from "react-icons/hi2";
+import Menus from "../../layouts/Menus";
 import { DataRow } from "../../layouts/Table/styles";
 import { Tag } from "../../layouts/Tag";
+import { useNavigate } from "react-router-dom";
 
 export function TicketRow({ ticket: {
   id: ticketId,
   attributes: { title, status, priority, createdAt },
 }
 }) {
+
+  const navigate = useNavigate();
 
   const statusStyles = {
     open: {
@@ -65,6 +70,19 @@ export function TicketRow({ ticket: {
       </Tag>
       <Tag textcolor={priorityTextColor} bgColor={priorityBgColor}>{priority}</Tag>
       <div>{new Date(createdAt).toLocaleDateString()}</div>
+      <div>
+        <Menus.Menu id={ticketId}>
+          <Menus.Toggle id={ticketId} />
+          <Menus.List id={ticketId}>
+            <Menus.Button
+              icon={<HiEye />}
+              onClick={() => navigate(`/tickets/${ticketId}`)}
+            >
+              See Details
+            </Menus.Button>
+          </Menus.List>
+        </Menus.Menu>
+      </div>
     </DataRow>
   );
 }
