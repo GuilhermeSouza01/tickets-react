@@ -5,6 +5,7 @@ import { DefaultLayout } from "./layouts/DefaultLayout"
 import { Tickets } from "./pages/Tickets"
 import { Login } from "./pages/Login/Login"
 import { Ticket } from "./pages/Ticket"
+import { CreateTicket } from "./pages/CreateTicket"
 
 export function Router() {
   return (
@@ -12,6 +13,7 @@ export function Router() {
       <Route  path="/" element={<DefaultLayout />}>
       <Route path="/" element={<Home />} />
       <Route path="tickets" element={<Tickets />} />
+            <Route path="/create" element={<CreateTicket />} />
             <Route path="tickets/:ticketId" element={<Ticket />} />
       </Route>
       <Route path="login" element={<Login />} />
