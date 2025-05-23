@@ -16,13 +16,16 @@ import Modal from "../../../layouts/Modal";
 import { ConfirmDelete } from "../../../layouts/ConfirmDelete";
 import { useDeleteTicket } from "../useDeleteTicket";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../authentication/useUser";
 
 /* eslint-disable react/react-in-jsx-scope */
 export function TicketDetail() {
 
+  const { user, isLoading: userLoading } = useUser();
   const {ticket, isLoading, error} = useTicket();
   const { isUpdating, updateTicket } = useEditTicket();
   const { isDeleting, deleteTicket } = useDeleteTicket();
+
 
   const moveBack = useMoveBack();
   const navigate = useNavigate();
@@ -34,9 +37,16 @@ export function TicketDetail() {
     }
   }, [ticket]);
 
-  if (isLoading) return <Spinner />
+
+
+  if (userLoading || isLoading) return <Spinner />;
 
   if (!ticket) return <Empty resource="ticket" />
+
+   const isOwner = user?.email === ticket.authorEmail;
+   const isManager = user?.isManager === true;
+
+   console.log("Current user:", user);
 
   const { id: ticketId, title, status: initialStatus, priority, description, createdAt, authorName, authorEmail } = ticket;
 
@@ -48,6 +58,12 @@ export function TicketDetail() {
     { value: "resolved", label: "Resolved" },
     { value: "closed", label: "Closed" }
   ];
+  const statusLabels = {
+    open: "Open",
+    closed: "Closed",
+    in_progress: "In Progress",
+    resolved: "Resolved",
+  };
 
   const statusStyles = {
     open: {
@@ -121,21 +137,26 @@ export function TicketDetail() {
             <HiChevronLeft strokeWidth={1.5} /> Back to tickets
         </ButtonText>
         <ActionButtonsContainer>
-          <Button type="button" variant="secondary"  size="medium"><HiOutlinePencil strokeWidth={2.5} /> Edit</Button>
-          <Modal>
-            <Modal.Open opens="delete">
-               <Button type="button" variant="danger" size="medium"><HiOutlineTrash strokeWidth={2.5} /> Delete</Button>
-            </Modal.Open>
+          {(isOwner || user?.isManager )  &&  (
+             <Button type="button" variant="secondary"  size="medium"><HiOutlinePencil strokeWidth={2.5} /> Edit</Button>
+          )}
+          {isManager && (
+             <Modal>
+                <Modal.Open opens="delete">
+                  <Button type="button" variant="danger" size="medium"><HiOutlineTrash strokeWidth={2.5} /> Delete</Button>
+                </Modal.Open>
 
-            <Modal.Window name="delete">
-              <ConfirmDelete
-                onConfirm={() => deleteTicket(ticketId, { onSettled: () => navigate(-1)})}
-                resourceName="ticket"
-                disabled={isDeleting}
-              />
-            </Modal.Window>
+                <Modal.Window name="delete">
+                  <ConfirmDelete
+                    onConfirm={() => deleteTicket(ticketId, { onSettled: () => navigate(-1)})}
+                    resourceName="ticket"
+                    disabled={isDeleting}
+                  />
+                </Modal.Window>
 
-          </Modal>
+            </Modal>
+          )}
+
 
         </ActionButtonsContainer>
       </HeaderContainer>
@@ -144,7 +165,7 @@ export function TicketDetail() {
         <StyledTicketDetailHeader>
             <StyledTicketDetailTitle>Ticket #{ticketId} </StyledTicketDetailTitle>
           <Tag textcolor={textColor} bgColor={bgColor}>
-            {currentStatus}
+            {statusLabels[currentStatus]}
           </Tag>
           <Tag textcolor={priorityTextColor} bgColor={priorityBgColor}>
             {priority}
@@ -152,12 +173,15 @@ export function TicketDetail() {
         </StyledTicketDetailHeader>
         <TitleSelectContainer>
             <h2>{title}</h2>
-            <Select
-              options={statusOptions}
-              value={currentStatus}
-              onChange={handleStatusChange}
-              disabled={isUpdating}
-            />
+            {isManager && (
+              <Select
+                options={statusOptions}
+                value={currentStatus}
+                onChange={handleStatusChange}
+                disabled={isUpdating}
+              />
+            )}
+
         </TitleSelectContainer>
         <StyledTicketDetailCreationInfo>
           <p>
