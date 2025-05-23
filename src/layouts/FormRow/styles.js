@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const StyledFormRow = styled.div`
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1.5rem 1fr 1.2fr;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 
   padding: 0.75rem 0;
@@ -22,6 +21,7 @@ export const StyledFormRow = styled.div`
 
   &:has(button) {
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     gap: 0.75rem
   }
