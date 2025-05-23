@@ -11,3 +11,9 @@ export const StyledSidebar = styled.aside`
   flex-direction: column;
   gap: 2rem;
 `;
+
+export const StyledLogoutContainer = styled.div`
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid ${props => props.theme["color-grey-100"]};
+`;
