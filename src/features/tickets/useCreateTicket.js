@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createTicket as createTicketApi } from "../../services/apiTickets";
+import toast from "react-hot-toast";
 
 export function useCreateTicket() {
   const queryClient = useQueryClient();
