@@ -26,7 +26,8 @@ export function TicketForm() {
   const { register, handleSubmit, formState }  = useForm();
   const { errors } = formState;
 
-  const onSubmit = async (formData) => {
+  function  onSubmit(formData){
+
     if(!user) return;
     const payload = {
      data:{
@@ -47,14 +48,17 @@ export function TicketForm() {
       },
     };
 
-    try {
-      createTicket(payload);
-      toast.success("Ticket created successfully");
-      navigate("/tickets");
-    } catch (error) {
-      console.error("Error creating ticket:", error);
-       toast.error("Erro ao criar o ticket. Tente novamente.");
-    }
+
+
+      createTicket(payload, {
+        onSuccess: () => {
+          navigate("/tickets");
+        },
+        onError: (error) => {
+          console.error("Error creating ticket:", error);
+
+        },
+      });
   }
   if (isLoading) return null;
   if (!user) {
@@ -94,7 +98,7 @@ export function TicketForm() {
                 })}
                 options={[
                   { value: "open", label: "Open" },
-                  { value: "in-progress", label: "In Progress" },
+                  { value: "in_progress", label: "In Progress" },
                   { value: "closed", label: "Closed" },
                   { value: "resolved", label: "Resolved" },
                 ]}
