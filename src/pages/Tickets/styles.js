@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0.725rem 0;
 `;
 
 export const TextContainer = styled.div`
@@ -28,4 +28,12 @@ export const TextContainer = styled.div`
     color: ${props => props.theme['color-grey-500']};
     line-height: 1.5;
   }
+`;
+
+export const OperationsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.825rem;
+  justify-content: end;
+  align-items: end;
 `;

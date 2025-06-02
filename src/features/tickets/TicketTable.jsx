@@ -7,12 +7,14 @@ import { useTickets } from './useTickets';
 import { TableBody } from '../../layouts/Table';
 import { TicketRow } from './TicketRow';
 import Menus from '../../layouts/Menus';
+import { useSearchParams } from 'react-router-dom';
 
 
 
 export function TicketTable(){
 
   const {tickets, isLoading, count,error } = useTickets();
+  const [searchParams] = useSearchParams();
 
 
   if (isLoading) {

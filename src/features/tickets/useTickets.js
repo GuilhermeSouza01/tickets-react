@@ -8,6 +8,20 @@ export function useTickets() {
   const queryClient = useQueryClient();
   const [searchParams] = useSearchParams();
 
+  // FILTER
+  const filterValue = searchParams.get("status");
+  const filter =
+  !filterValue || filterValue === "all"
+  ? null
+  : {field: "status", value: filterValue};
+
+  // SORT
+  const sortByRaw = searchParams.get("sortBy") || "createdAt-desc";
+  const [field, direction] = sortByRaw.split("-");
+  const sortBy = { field, direction };
+
+
+  // PAGINATION
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
 
   const {
@@ -15,8 +29,8 @@ export function useTickets() {
     data,
     error,
   } = useQuery({
-    queryKey: ["tickets", page],
-    queryFn: () => getTickets({page}),
+    queryKey: ["tickets", filter, sortBy, page],
+    queryFn: () => getTickets({filter, sortBy, page}),
     keepPreviousData: true,
   });
 

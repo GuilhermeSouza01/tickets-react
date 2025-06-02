@@ -1,9 +1,23 @@
 import axiosInstance from "./axios";
 
-export async function getTickets({page}) {
+export async function getTickets({filter, sortBy, page}) {
 
   try {
-    const response = await axiosInstance.get(`/tickets?page=${page}`);
+    const params = new URLSearchParams();
+
+    if (filter) {
+      params.append(filter.field, filter.value);
+    }
+
+    if (sortBy) {
+     params.append('sortBy', `${sortBy.field}-${sortBy.direction}`);
+    }
+
+    if (page) {
+      params.append("page", page);
+    }
+
+    const response = await axiosInstance.get(`/tickets?${params.toString()}`);
     return {
       data: response.data.data,
       total: response.data.meta.total,
