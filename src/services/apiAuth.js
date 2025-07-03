@@ -1,3 +1,4 @@
+import { data } from "react-router-dom";
 import { setAuthToken} from "./axios";
 import axiosInstance from "./axios";
 
@@ -44,5 +45,25 @@ export async function getCurrentUser() {
   } catch (error) {
     console.error("Get current user error:", error);
     throw new Error("An error occurred while fetching the current user");
+  }
+}
+
+export async function signup({fullName, email, password, manager}) {
+  try {
+    const response = await axiosInstance.post("/users", {
+      data: {
+        attributes: {
+          name: fullName,
+          email: email,
+          password: password,
+          isManager: manager === "true" ? true : false,
+        }
+      }
+    })
+
+    return response.data;
+  } catch (error) {
+    console.error("Register error:", error);
+    throw new Error(error.response.data.message || "An error occurred while registering");
   }
 }

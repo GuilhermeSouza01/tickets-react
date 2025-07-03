@@ -9,6 +9,7 @@ import { CreateTicket } from "./pages/CreateTicket"
 import { PageNotFound } from "./layouts/PageNotFound"
 import ProtectedRoute from "./layouts/ProtectedRoute"
 import { TicketDetail } from "./features/tickets/TicketDetail"
+import { Users } from "./pages/Users"
 
 export function Router() {
   return (
@@ -23,6 +24,8 @@ export function Router() {
             <Route path="tickets" element={<Tickets />} />
             <Route path="tickets/create" element={<CreateTicket />} />
             <Route path="tickets/:ticketId" element={<TicketDetail />} />
+            <Route path="users" element={<Users />} />
+
         </Route>
             <Route path="login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
