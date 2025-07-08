@@ -9,6 +9,7 @@ export const StyledButtonText = styled.button`
   color: ${(props) => props.theme["color-grey-400"]};
   font-weight: 500;
   transition: all 0.3s;
+  margin-bottom: 2rem;
 
   outline: none;
   &:focus {

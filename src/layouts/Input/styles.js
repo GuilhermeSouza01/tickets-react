@@ -6,4 +6,8 @@ export const StyledInput = styled.input`
   border-radius: ${(props) => props.theme["border-radius-sm"]};
   padding: 0.5rem 0.75rem;
   box-shadow: ${(props) => props.theme["shadow-sm"]};
+
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
 `;

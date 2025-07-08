@@ -8,4 +8,9 @@ export const StyledSelect = styled.select`
   background-color: ${(props) => props.theme["color-grey-0"]};
   font-weight: 500;
   box-shadow: ${(props) => props.theme["shadow-sm"]};
+
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+
 `;

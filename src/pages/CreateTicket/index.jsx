@@ -27,6 +27,6 @@ export const StyledCreate = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 60rem;
+  /* max-width: 60rem; */
   margin: 0 auto;
 `;

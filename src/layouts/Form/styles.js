@@ -8,9 +8,9 @@ export const StyledForm = styled.form`
     border: 1px solid ${(props) => props.theme["color-grey-100"]};
     border-radius: ${(props) => props.theme["border-radius-md"]};
 
-    max-width: 60rem;
-    width: 100%;
-    margin: 2rem auto;
+    /* max-width: 60rem;
+    width: 100%; */
+    /* margin: 2rem auto ; */
   `}
 
   ${(props) =>
